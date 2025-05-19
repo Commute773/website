@@ -1,0 +1,69 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 16
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      # Build main site (in ./main)
+      - name: Install and build main
+        working-directory: ./main
+        run: |
+          npm install
+          npm run build
+
+      # Clone and build danmaku3d-demo
+      - name: Clone and build danmaku3d-demo
+        run: |
+          git clone https://github.com/Commute773/danmaku3d-demo.git
+          cd danmaku3d-demo
+          npm install
+          npm run build
+          cd ..
+
+      # Clone and build wordfind-vr
+      - name: Clone and build wordfind-vr
+        run: |
+          git clone https://github.com/Commute773/wordfind-vr.git
+          cd wordfind-vr
+          npm install
+          npm run build
+          cd ..
+
+      # Assemble the deploy folder
+      - name: Assemble deploy directory
+        run: |
+          mkdir -p deploy
+          # 1. Merge main/dist/* and danmaku3d-demo/build/* into deploy/
+          cp -r main/dist/* deploy/ || true
+          cp -r danmaku3d-demo/build/* deploy/ || true
+          # 2. Place danmaku3d-demo/build at deploy/danmaku3d-demo/build
+          mkdir -p deploy/danmaku3d-demo
+          cp -r danmaku3d-demo/build deploy/danmaku3d-demo/
+          # 3. Place wordfind-vr/build at deploy/wordfind-vr/build
+          mkdir -p deploy/wordfind-vr
+          cp -r wordfind-vr/build deploy/wordfind-vr/
+          # 4. Place wordfind-vr/build at deploy/wordfind/*
+          mkdir -p deploy/wordfind
+          cp -r wordfind-vr/build/* deploy/wordfind/
+          # (optional: tree deploy for debugging)
+          apt-get update && apt-get install tree -y
+          tree deploy
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./deploy
