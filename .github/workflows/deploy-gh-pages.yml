@@ -59,6 +59,8 @@ jobs:
           # 4. Place wordfind-vr/build at deploy/wordfind/*
           mkdir -p deploy/wordfind
           cp -r wordfind-vr/build/* deploy/wordfind/
+          # Add robots.txt to prevent indexing
+          echo -e "User-agent: *\nDisallow: /" > deploy/robots.txt
           # (optional: tree deploy for debugging)
           apt-get update && apt-get install tree -y
           tree deploy
