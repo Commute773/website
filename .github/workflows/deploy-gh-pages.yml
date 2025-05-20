@@ -30,7 +30,7 @@ jobs:
         run: |
           git clone https://github.com/Commute773/danmaku3d-demo.git
           cd danmaku3d-demo
-          npm install
+          npm install --legacy-peer-deps
           npm run build
           cd ..
 
