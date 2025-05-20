@@ -31,7 +31,7 @@ jobs:
           git clone https://github.com/Commute773/danmaku3d-demo.git
           cd danmaku3d-demo
           npm install --legacy-peer-deps
-          npm run build
+          CI=false npm run build
           cd ..
 
       # Clone and build wordfind-vr
