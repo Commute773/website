@@ -52,12 +52,11 @@ jobs:
       - name: Assemble deploy directory
         run: |
           mkdir -p deploy
-          # 1. Merge main/dist/* and danmaku3d-demo/build/* into deploy/
+          # 1. Merge main/dist/* into deploy/
           cp -r main/dist/* deploy/ || true
-          cp -r danmaku3d-demo/build/* deploy/ || true
-          # 2. Place danmaku3d-demo/build at deploy/danmaku3d-demo/build
-          mkdir -p deploy/danmaku3d-demo
-          cp -r danmaku3d-demo/build deploy/danmaku3d-demo/
+          # 2. Place danmaku3d-demo/build at deploy/menu/build
+          mkdir -p deploy/menu
+          cp -r danmaku3d-demo/build deploy/menu/
           # 3. Place wordfind-vr/build at deploy/wordfind-vr/build
           mkdir -p deploy/wordfind-vr
           cp -r wordfind-vr/build deploy/wordfind-vr/
