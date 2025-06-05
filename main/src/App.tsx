@@ -10,7 +10,7 @@ function App() {
   return (
     <SnapScroll>
       <Box w="calc(min(1280px, 100vw))">
-        <LetterByLetter text="Meredith Alderwick" />
+        <LetterByLetter text="Alderwick" />
       </Box>
       <Box
         style={{
