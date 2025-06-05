@@ -52,16 +52,24 @@ jobs:
       - name: Assemble deploy directory
         run: |
           mkdir -p deploy
+          # 1. Copy danmaku3d to root
+          cp -r danmaku3d-demo/build/* deploy/ || true
+          # 2. Save original index.html
+          mkdir -p deploy/_temp
+          cp danmaku3d-demo/build/index.html deploy/_temp/danmaku3d-index.html || true
+          # 3. Merge main site into root (may overwrite index.html etc.)
           cp -r main/dist/* deploy/ || true
+          # 4. Restore original danmaku3d index.html to /menu
           mkdir -p deploy/menu
-          cp -r danmaku3d-demo/build/* deploy/menu/
-          mkdir -p deploy/wordfind-vr
-          cp -r wordfind-vr/build deploy/wordfind-vr/
-          mkdir -p deploy/wordfind
-          cp -r wordfind-vr/build/* deploy/wordfind/
+          cp deploy/_temp/danmaku3d-index.html deploy/menu/index.html || true
+          # Cleanup
+          rm -rf deploy/_temp
+          # Prevent indexing
           echo -e "User-agent: *\nDisallow: /" > deploy/robots.txt
+          # Debug output
           apt-get update && apt-get install tree -y
           tree deploy
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
