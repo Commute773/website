@@ -52,20 +52,14 @@ jobs:
       - name: Assemble deploy directory
         run: |
           mkdir -p deploy
-          # 1. Merge main/dist/* into deploy/
           cp -r main/dist/* deploy/ || true
-          # 2. Place danmaku3d-demo/build at deploy/menu/build
           mkdir -p deploy/menu
-          cp -r danmaku3d-demo/build deploy/menu/
-          # 3. Place wordfind-vr/build at deploy/wordfind-vr/build
+          cp -r danmaku3d-demo/build/* deploy/menu/
           mkdir -p deploy/wordfind-vr
           cp -r wordfind-vr/build deploy/wordfind-vr/
-          # 4. Place wordfind-vr/build at deploy/wordfind/*
           mkdir -p deploy/wordfind
           cp -r wordfind-vr/build/* deploy/wordfind/
-          # Add robots.txt to prevent indexing
           echo -e "User-agent: *\nDisallow: /" > deploy/robots.txt
-          # (optional: tree deploy for debugging)
           apt-get update && apt-get install tree -y
           tree deploy
 
