@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
 
-permissions:             # ← Add this block
+permissions:
   contents: read
   pages: write
   id-token: write
