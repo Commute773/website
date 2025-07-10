@@ -62,10 +62,6 @@ const projects: Category[] = [
               and React.
             </Text>
 
-            <Anchor href={protocol_host_port + "menu"} target="_blank" mt="md">
-              Play Danmaku 3D
-            </Anchor>
-
             <Stack gap="xs" mt="md">
               <Title order={6}>Key Features:</Title>
               <List size="sm">
