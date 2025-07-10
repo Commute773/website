@@ -17,11 +17,11 @@ export const Contact = () => {
     //   value: "Download Resume",
     //   href: "/resume.pdf",
     // },
-    {
-      label: "Phone",
-      value: "579-421-2335",
-      href: "tel:579-421-2335",
-    },
+    // {
+    //   label: "Phone",
+    //   value: "579-421-2335",
+    //   href: "tel:579-421-2335",
+    // },
   ];
 
   return (

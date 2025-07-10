@@ -29,13 +29,9 @@ const skills = [
 
             <List size="sm" mt="md">
               <List.Item>
-                Developed{" "}
-                <Anchor href="/menu" target="_blank">
-                  Danmaku3D
-                </Anchor>
-                , a high-performance 3D bullet hell game using React and
-                Babylon.js, demonstrating React's capabilities beyond
-                traditional web applications.
+                Developed Danmaku3D, a high-performance 3D bullet hell game
+                using React and Babylon.js, demonstrating React's capabilities
+                beyond traditional web applications.
               </List.Item>
               <List.Item>
                 Created a comprehensive UI library at Censys, featuring an npm
@@ -168,11 +164,8 @@ const skills = [
 
             <List size="sm" mt="md">
               <List.Item>
-                Utilized in conjunction with Babylon.js to create{" "}
-                <Anchor href="/menu" target="_blank">
-                  Danmaku3D
-                </Anchor>
-                , a first-person bullet-hell game.
+                Utilized in conjunction with Babylon.js to create Danmaku3D, a
+                first-person bullet-hell game.
               </List.Item>
               <List.Item>
                 Implemented custom shaders and optimized rendering pipelines for
@@ -240,12 +233,9 @@ const skills = [
 
             <List size="sm" mt="md">
               <List.Item>
-                Created{" "}
-                <Anchor href="/menu" target="_blank">
-                  Danmaku3D
-                </Anchor>
-                , featuring the first implementation of asynchronous compute
-                shaders in Babylon.js, optimized for mobile performance.
+                Created Danmaku3D, featuring the first implementation of
+                asynchronous compute shaders in Babylon.js, optimized for mobile
+                performance.
               </List.Item>
               <List.Item>
                 Developed a 3D VR-compatible word-finding game with dynamic
@@ -278,11 +268,7 @@ const skills = [
 
             <List size="sm" mt="md">
               <List.Item>
-                Developed{" "}
-                <Anchor href="/wordfind" target="_blank">
-                  Wordfind VR
-                </Anchor>
-                , a VR-compatible word-finding game.
+                Developed Wordfind VR, a VR-compatible word-finding game.
               </List.Item>
               <List.Item>
                 Created an experimental VR coding environment (live-code-vr)

@@ -195,14 +195,6 @@ const projects: Category[] = [
               dynamic audio experience.
             </Text>
 
-            <Anchor
-              href={protocol_host_port + "wordfind"}
-              target="_blank"
-              mt="md"
-            >
-              Play Word Find VR
-            </Anchor>
-
             <Stack gap="xs" mt="md">
               <Title order={6}>Key Features:</Title>
               <List size="sm">
